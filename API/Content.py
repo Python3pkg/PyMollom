@@ -21,9 +21,9 @@ __date__ = "$Feb 8, 2012$"
 # This module contains the class file for the Mollom Content API
 # ---------------------------------------------------------------------
 
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
-from Internals import __service, __cat_maybe_values
+from .Internals import __service, __cat_maybe_values
 
 class Check(object):
     """Representing the checks Mollom is requested to make on a submitted piece of content:

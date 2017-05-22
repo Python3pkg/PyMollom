@@ -19,8 +19,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
-from xmlrpclib import Transport
-from xmlrpclib import ProtocolError
+from xmlrpc.client import Transport
+from xmlrpc.client import ProtocolError
 
 class HTTPTransport(Transport):
     ##
@@ -31,9 +31,9 @@ class HTTPTransport(Transport):
 
     def make_connection(self, host):
         # create a HTTP connection object from a host descriptor
-        import httplib
+        import http.client
         host, extra_headers, x509 = self.get_host_info(host)
-        return httplib.HTTPConnection(host)
+        return http.client.HTTPConnection(host)
     ##
     # Send a complete request, and parse the response.
     #

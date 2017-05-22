@@ -27,7 +27,7 @@ __date__ = 'Feb 8, 2012'
 # ---------------------------------------------------------------------
 
 import oauth2
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 
 def __service(method, path, data=None, maxRetries=0, depth=0):
@@ -56,7 +56,7 @@ def __service(method, path, data=None, maxRetries=0, depth=0):
         #         , 'oauth_consumer_key': self.publicKey
         #         }
 
-    body = urllib.urlencode(data)
+    body = urllib.parse.urlencode(data)
     consumer = oauth2.Consumer(key=self.publicKey, secret=self.privateKey)
     client = oauth2.Client(consumer)
 
@@ -76,7 +76,7 @@ def __service(method, path, data=None, maxRetries=0, depth=0):
 
 def __cat_maybe_values(d):
     d_ = dict()
-    for k,v in d.iteritems():
+    for k,v in d.items():
         if v != None:
             d_[k] = v
     return d_

@@ -23,7 +23,7 @@ __date__ = "$Feb 8, 2012$"
 
 def catMaybeValues(d):
     d_ = dict()
-    for k,v in d.iteritems():
+    for k,v in d.items():
        if v != None: 
            d_[k] = v
     return d_
